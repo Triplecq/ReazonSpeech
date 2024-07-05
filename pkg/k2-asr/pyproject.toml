@@ -1,20 +1,19 @@
 [build-system]
-requires = ["setuptools", "Cython"]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "reazonspeech-nemo-asr"
+name = "reazonspeech-k2-asr"
 version = "2.0.1"
 dependencies = [
     "numpy",
     "librosa",
     "soundfile",
-    "torch",
-    "nemo_toolkit[asr]",
+    "sherpa-onnx",  # https://k2-fsa.github.io/sherpa/onnx/python/install.html#method-1-from-pre-compiled-wheels
 ]
 
 [tool.setuptools.package-dir]
-"reazonspeech.nemo.asr" = "src"
+"reazonspeech.k2.asr" = "src"
 
 [project.scripts]
-reazonspeech-nemo-asr = "reazonspeech.nemo.asr.cli:main"
+reazonspeech-k2-asr = "reazonspeech.k2.asr.cli:main"

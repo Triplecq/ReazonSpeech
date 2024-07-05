@@ -1,8 +1,8 @@
-from audio import audio_from_path
+from audio import read_wave
 from transcribe import load_model, transcribe
 
 def main():
-    audio = audio_from_path("/Users/qi_chen/Documents/Github/sherpa-onnx/pretrained-models/reazonspeech-zipformer-large/test_audios/JSUT0001.wav")
+    audio = read_wave("/Users/qi_chen/Documents/Github/sherpa-onnx/pretrained-models/reazonspeech-zipformer-large/test_audios/JSUT0001.wav")
     print('loaded audio')
 
     model = load_model()
