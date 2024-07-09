@@ -3,6 +3,8 @@ import sherpa_onnx
 from .interface import TranscribeConfig, TranscribeResult, Token
 from .audio import audio_to_file, pad_audio, norm_audio
 
+PAD_SECONDS = 0.5
+
 def load_model():
     """Load ReazonSpeech model
 
@@ -54,8 +56,8 @@ def transcribe(model, audio, config=None):
     if config is None:
         config = TranscribeConfig()
 
-    # audio = pad_audio(norm_audio(audio), PAD_SECONDS)
-    audio = norm_audio(audio)
+    audio = pad_audio(norm_audio(audio), PAD_SECONDS)
+    # audio = norm_audio(audio)
 
     # print('audio normalized')
 
