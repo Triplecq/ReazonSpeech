@@ -26,7 +26,7 @@ def load_model():
     from huggingface_hub import snapshot_download
     repo_url = 'reazon-research/reazonspeech-zipformer-large'
     local_path = snapshot_download(repo_url)
-    print("Repository downloaded to:", local_path)
+    # print("Repository downloaded to:", local_path)
 
     return sherpa_onnx.OfflineRecognizer.from_transducer(
         tokens=local_path + "/tokens.txt",

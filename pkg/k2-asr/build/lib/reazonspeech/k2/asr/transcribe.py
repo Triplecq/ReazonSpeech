@@ -57,14 +57,14 @@ def transcribe(model, audio, config=None):
     # audio = pad_audio(norm_audio(audio), PAD_SECONDS)
     audio = norm_audio(audio)
 
-    print('audio normalized')
+    # print('audio normalized')
 
     stream = model.create_stream()
     stream.accept_waveform(audio.samplerate, audio.waveform)
 
     model.decode_stream(stream)
 
-    print(stream.result)
+    # print(stream.result)
 
     tokens = []
     for t, s in zip(stream.result.tokens, stream.result.timestamps):
