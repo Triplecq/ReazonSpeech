@@ -57,9 +57,6 @@ def main():
     else:
         outfile = sys.stdout
 
-    # # Suppress warnings from ESPnet
-    # warnings.simplefilter("ignore")
-
     # Load audio data and model
     audio = audio_from_path(args[0])
     model = load_model()

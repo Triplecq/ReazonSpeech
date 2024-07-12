@@ -77,6 +77,17 @@ def pad_audio(audio, seconds):
     Returns:
       AudioData
     """
+    # head_padding = int(seconds * audio.samplerate)
+    # tail_padding = int(seconds * audio.samplerate)
+
+    # print('aduio padding, head_padding:', seconds, 'tail_padding:', seconds)
+
+    # waveform = np.pad(audio.waveform,
+    #                   pad_width=(head_padding, tail_padding),
+    #                   mode='constant', constant_values=(0, 0))
+
+    print('aduio padding, head_padding:', seconds)
+    
     waveform = np.pad(audio.waveform,
                       pad_width=int(seconds * audio.samplerate),
                       mode='constant')

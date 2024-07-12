@@ -1,6 +1,6 @@
 """USAGE
 
-    reazonspeech-nemo-asr [-h] [--to={vtt,srt,ass,json,tsv}] [-o file] audio
+    reazonspeech-k2-asr [-h] [--to={vtt,srt,ass,json,tsv}] [-o file] audio
 
 OPTIONS
 
@@ -20,10 +20,10 @@ OPTIONS
 EXAMPLES
 
     # Transcribe audio file
-    $ reazonspeech-nemo-asr sample.wav
+    $ reazonspeech-k2-asr sample.wav
 
     # Output subtitles in VTT format
-    $ reazonspeech-nemo-asr -o sample.vtt sample.webm
+    $ reazonspeech-k2-asr -o sample.vtt sample.webm
 """
 
 import sys
@@ -57,8 +57,8 @@ def main():
     else:
         outfile = sys.stdout
 
-    # Suppress warnings from ESPnet
-    warnings.simplefilter("ignore")
+    # # Suppress warnings from ESPnet
+    # warnings.simplefilter("ignore")
 
     # Load audio data and model
     audio = audio_from_path(args[0])

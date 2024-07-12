@@ -3,6 +3,8 @@ import sherpa_onnx
 from .interface import TranscribeConfig, TranscribeResult, Token
 from .audio import audio_to_file, pad_audio, norm_audio
 
+PAD_SECONDS = 0.9
+
 def load_model():
     """Load ReazonSpeech model
 
@@ -26,7 +28,7 @@ def load_model():
     from huggingface_hub import snapshot_download
     repo_url = 'reazon-research/reazonspeech-zipformer-large'
     local_path = snapshot_download(repo_url)
-    print("Repository downloaded to:", local_path)
+    # print("Repository downloaded to:", local_path)
 
     return sherpa_onnx.OfflineRecognizer.from_transducer(
         tokens=local_path + "/tokens.txt",
@@ -54,9 +56,10 @@ def transcribe(model, audio, config=None):
     if config is None:
         config = TranscribeConfig()
 
-    # audio = pad_audio(norm_audio(audio), PAD_SECONDS)
-    audio = norm_audio(audio)
-
+    audio = pad_audio(norm_audio(audio), PAD_SECONDS)
+    # print(('audio padded'))
+    
+    # audio = norm_audio(audio)
     # print('audio normalized')
 
     stream = model.create_stream()
