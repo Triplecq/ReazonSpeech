@@ -1,5 +1,4 @@
-from audio import audio_from_path
-from transcribe import load_model, transcribe
+from reazonspeech.k2.asr import transcribe, audio_from_path, load_model
 
 def main():
     audio = audio_from_path("/Users/qi_chen/Documents/Github/sherpa-onnx/pretrained-models/reazonspeech-zipformer-large/test_audios/JSUT0001.wav")

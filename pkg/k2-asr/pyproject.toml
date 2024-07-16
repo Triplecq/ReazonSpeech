@@ -9,7 +9,6 @@ dependencies = [
     "numpy",
     "librosa",
     "soundfile",
-    "sherpa-onnx",  # https://k2-fsa.github.io/sherpa/onnx/python/install.html#method-1-from-pre-compiled-wheels
 ]
 
 [tool.setuptools.package-dir]
